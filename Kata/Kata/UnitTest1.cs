@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using VKLib.NativeExtension;
 
 namespace Solution
 {
@@ -23,7 +22,6 @@ namespace Solution
 
         public static string HighestScore(string s)
         {
-
             return null;
         }
 
@@ -76,7 +74,7 @@ namespace Solution
 
         //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         //https://www.codewars.com/kata/566fc12495810954b1000030/train/csharp
-        //n을 받아서 0에서 n까지 각 수마다 제곱하여 숫자들을 만들라. (ex n =3 => (0, 1,4,9))
+        //n을 받아서 0에서 n까지 각 수마다 제곱하여 숫자들을 만들라. (ex number =3 => (0, 1,4,9))
         //그리고 그 숫자들에서 k 라는 숫자가 몇번이나 나오는지 반환할 것. (11은 1이 2개이고 12는 1이 1개이다 라는 식)
         [TestFixture]
         public static class NbDigTests
@@ -155,7 +153,6 @@ namespace Solution
 
         public List<string> wave(string str)
         {
-           
             return null;
         }
 
@@ -305,7 +302,7 @@ namespace Solution
         //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         //https://www.codewars.com/kata/a-rule-of-divisibility-by-13/train/csharp
         //13 의 법칙. 어떤 숫자를 13으로 나눳을 때 나머지가 얼마인지 알고싶을 때,
-        // 해당 숫자의 각 자릿수에 다음 순열을 차례대로 곱한다 (1, 10, 9, 12, 3, 4)
+        // 해당 숫자를 뒤집은 후, 각 자릿수에 다음 순열을 차례대로 곱한다 (1, 10, 9, 12, 3, 4)
         // 그리고 그 결과에 대해 한번 더 돌려서 그 결과가 같을 때, 그 결과를 13으로 나누면 나머지가 나오는데 그 나머지는 원래 숫자를 13으로 나눈 것과 같다.
         // 이 문제는 그 '같은 결과 숫자' 를 반환하는 것이다. (나머지를 반환하는 것이 아님)
         // Example: What is the remainder when 1234567 is divided by 13?
@@ -319,7 +316,6 @@ namespace Solution
         [TestFixture]
         public static class ThirteenTests
         {
-
             private static void testing(long actual, long expected)
             {
                 Assert.AreEqual(expected, actual);
@@ -336,6 +332,7 @@ namespace Solution
                 testing(Thirteen.Thirt(987654321), 30);
             }
         }
+
         public class Thirteen
         {
             public static long Thirt(long n)
