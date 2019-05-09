@@ -338,10 +338,9 @@ namespace Solution
         }
         public class Thirteen
         {
-
             public static long Thirt(long n)
             {
-                // your code
+                return 0;
             }
         }
     }
