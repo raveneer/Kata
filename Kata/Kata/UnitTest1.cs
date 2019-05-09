@@ -301,5 +301,48 @@ namespace Solution
         {
             return array;
         }
+
+        //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        //https://www.codewars.com/kata/a-rule-of-divisibility-by-13/train/csharp
+        //13 의 법칙. 어떤 숫자를 13으로 나눳을 때 나머지가 얼마인지 알고싶을 때,
+        // 해당 숫자의 각 자릿수에 다음 순열을 차례대로 곱한다 (1, 10, 9, 12, 3, 4)
+        // 그리고 그 결과에 대해 한번 더 돌려서 그 결과가 같을 때, 그 결과를 13으로 나누면 나머지가 나오는데 그 나머지는 원래 숫자를 13으로 나눈 것과 같다.
+        // 이 문제는 그 '같은 결과 숫자' 를 반환하는 것이다. (나머지를 반환하는 것이 아님)
+        // Example: What is the remainder when 1234567 is divided by 13?
+        // 7×1 + 6×10 + 5×9 + 4×12 + 3×3 + 2×4 + 1×1 = 178
+        // We repeat the process with 178:
+        // 8x1 + 7x10 + 1x9 = 87
+        // and again with 87:
+        // 7x1 + 8x10 = 87
+        // 이므로 87을 반환하라는 것.
+
+        [TestFixture]
+        public static class ThirteenTests
+        {
+
+            private static void testing(long actual, long expected)
+            {
+                Assert.AreEqual(expected, actual);
+            }
+
+            [Test]
+            public static void test1()
+            {
+                Console.WriteLine("Testing Thirt");
+                testing(Thirteen.Thirt(8529), 79);
+                testing(Thirteen.Thirt(85299258), 31);
+                testing(Thirteen.Thirt(5634), 57);
+                testing(Thirteen.Thirt(1111111111), 71);
+                testing(Thirteen.Thirt(987654321), 30);
+            }
+        }
+        public class Thirteen
+        {
+
+            public static long Thirt(long n)
+            {
+                // your code
+            }
+        }
     }
 }
