@@ -340,5 +340,52 @@ namespace Solution
                 return 0;
             }
         }
+
+        //https://www.codewars.com/kata/57ea70aa5500adfe8a000110
+        //어레이를 접어라!
+        /*보시다시피, 숫자 수가 홀수이면 중간 숫자가 유지됩니다. 그렇지 않으면 접이식 점은 가운데 숫자 사이에 있으므로 모든 숫자가 한 방법으로 추가됩니다.
+           배열은 항상 숫자를 포함하며 null이 될 수 없습니다. 매개 변수 run은 항상 0보다 큰 양의 정수가 될 것이고 메서드가 수행해야하는 접는 실행 횟수를 지정합니다.
+           하나의 요소가있는 배열이 접히면 동일한 배열로 유지됩니다.
+           입력 배열을 수정해서는 안됩니다!
+
+        Fold 1-times:
+           [1,2,3,4,5] -> [6,6,3]
+           
+           A little visualization (NOT for the algorithm but for the idea of folding):
+           
+           Step 1         Step 2        Step 3       Step 4       Step5
+           5/           5|         5\          
+           4/            4|          4\      
+           1 2 3 4 5      1 2 3/         1 2 3|       1 2 3\       6 6 3
+           ----*----      ----*          ----*        ----*        ----*
+           
+           
+           Fold 2-times:
+           [1,2,3,4,5] -> [9,6]
+         */
+
+        [Test]
+        public void Test_FoldArray()
+        {
+            var input = new int[] { 1, 2, 3, 4, 5 };
+            var expected = new int[] { 6, 6, 3 };
+            Assert.AreEqual(string.Join(",", expected), string.Join(",", Kata.FoldArray(input, 1)));
+
+            expected = new int[] { 9, 6 };
+            Assert.AreEqual(string.Join(",", expected), string.Join(",", Kata.FoldArray(input, 2)));
+
+            expected = new int[] { 15 };
+            Assert.AreEqual(string.Join(",", expected), string.Join(",", Kata.FoldArray(input, 3)));
+
+            input = new int[] { -9, 9, -8, 8, 66, 23 };
+            expected = new int[] { 14, 75, 0 };
+            Assert.AreEqual(string.Join(",", expected), string.Join(",", Kata.FoldArray(input, 1)));
+        }
+
+        public static int[] FoldArray(int[] array, int runs)
+        {
+            return new int[] { 0 };
+        }
     }
 }
+ 
