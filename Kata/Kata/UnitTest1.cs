@@ -337,11 +337,11 @@ namespace Solution
            
            A little visualization (NOT for the algorithm but for the idea of folding):
            
-           Step 1         Step 2        Step 3       Step 4       Step5
-           5/           5|         5\          
-           4/            4|          4\      
-           1 2 3 4 5      1 2 3/         1 2 3|       1 2 3\       6 6 3
-           ----*----      ----*          ----*        ----*        ----*
+             Step 1         Step 2        Step 3       Step 4       Step5
+                                 5/           5|         5\          
+                                4/            4|          4\      
+            1 2 3 4 5      1 2 3/         1 2 3|       1 2 3\       6 6 3
+            ----*----      ----*          ----*        ----*        ----*
            
            
            Fold 2-times:
