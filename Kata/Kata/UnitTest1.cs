@@ -8,23 +8,7 @@ namespace Solution
     [TestFixture]
     public class Kata
     {
-        //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        //https://www.codewars.com/kata/57eb8fcdf670e99d9b000272/train/csharp
-        //find highest word. a=1, b=2 ...
-        [Test]
-        public void Test_HighstScore()
-        {
-            Assert.AreEqual("b", HighestScore("a b"));
-            Assert.AreEqual("cc", HighestScore("aa bb cc"));
-            Assert.AreEqual("taxi", HighestScore("man i need a taxi up to ubud"));
-            Assert.AreEqual("volcano", HighestScore("what time are we climbing up to the volcano"));
-        }
-
-        public static string HighestScore(string s)
-        {
-            return null;
-        }
-
+        
         //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         //https://www.codewars.com/kata/5277c8a221e209d3f6000b56/solutions/csharp
         //재귀는 스택으로 풀 수 있다.
