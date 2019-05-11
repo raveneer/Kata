@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
-using VKLib.NativeExtension;
 
 namespace SolutionOld
 {
@@ -42,7 +40,6 @@ namespace SolutionOld
             return null;
         }
 
-
         [Test]
         public static void Test_CharCount1()
         {
@@ -71,12 +68,12 @@ namespace SolutionOld
         [Test]
         public void Test_Median()
         {
-            Assert.AreEqual(2, Median(new[] { 1, 2, 3 }));
-            Assert.AreEqual(1, Median(new[] { 1 }));
-            Assert.AreEqual(0, Median(new[] { 0, 0, 0 }));
-            Assert.AreEqual(2, Median(new[] { 1, 2, 2, 3 }));
-            Assert.AreEqual(2, Median(new[] { 3, 2, 2, 1 }));
-            Assert.AreEqual(2.5, Median(new[] { 3, 3, 2, 2 }));
+            Assert.AreEqual(2, Median(new[] {1, 2, 3}));
+            Assert.AreEqual(1, Median(new[] {1}));
+            Assert.AreEqual(0, Median(new[] {0, 0, 0}));
+            Assert.AreEqual(2, Median(new[] {1, 2, 2, 3}));
+            Assert.AreEqual(2, Median(new[] {3, 2, 2, 1}));
+            Assert.AreEqual(2.5, Median(new[] {3, 3, 2, 2}));
         }
 
         private double Median(int[] p0)
@@ -101,6 +98,51 @@ namespace SolutionOld
             return null;
         }
 
+        //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        //https://www.codewars.com/kata/5277c8a221e209d3f6000b56/solutions/csharp
+        //재귀는 스택으로 풀 수 있다.
 
+        [TestFixture]
+        public class BraceTests
+        {
+            [Test]
+            public void Test1()
+            {
+                Assert.AreEqual(true, Brace.ValidBraces("()"));
+            }
+
+            [Test]
+            public void Test2()
+            {
+                Assert.AreEqual(false, Brace.ValidBraces("[(])"));
+                Assert.AreEqual(true, Brace.ValidBraces("{[()]}"));
+                Assert.AreEqual(true, Brace.ValidBraces("{([])}"));
+                Assert.AreEqual(true, Brace.ValidBraces("{[]()}"));
+                Assert.AreEqual(true, Brace.ValidBraces("[](){}"));
+            }
+        }
+
+        public class Brace
+        {
+            public static bool ValidBraces(string braces)
+            {
+                return false;
+            }
+
+            public static bool IsPairBrace(char brace, char compare)
+            {
+                switch (brace)
+                {
+                    case '}':
+                        return compare == '{';
+                    case ']':
+                        return compare == '[';
+                    case ')':
+                        return compare == '(';
+                    default:
+                        return false;
+                }
+            }
+        }
     }
 }

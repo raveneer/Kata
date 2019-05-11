@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using NUnit.Framework;
 
 namespace Solution
@@ -8,54 +7,6 @@ namespace Solution
     [TestFixture]
     public class Kata
     {
-        
-        //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        //https://www.codewars.com/kata/5277c8a221e209d3f6000b56/solutions/csharp
-        //재귀는 스택으로 풀 수 있다.
-
-        [TestFixture]
-        public class BraceTests
-        {
-            [Test]
-            public void Test1()
-            {
-                Assert.AreEqual(true, Brace.ValidBraces("()"));
-            }
-
-            [Test]
-            public void Test2()
-            {
-                Assert.AreEqual(false, Brace.ValidBraces("[(])"));
-                Assert.AreEqual(true, Brace.ValidBraces("{[()]}"));
-                Assert.AreEqual(true, Brace.ValidBraces("{([])}"));
-                Assert.AreEqual(true, Brace.ValidBraces("{[]()}"));
-                Assert.AreEqual(true, Brace.ValidBraces("[](){}"));
-            }
-        }
-
-        public class Brace
-        {
-            public static bool ValidBraces(string braces)
-            {
-                return false;
-            }
-
-            public static bool IsPairBrace(char brace, char compare)
-            {
-                switch (brace)
-                {
-                    case '}':
-                        return compare == '{';
-                    case ']':
-                        return compare == '[';
-                    case ')':
-                        return compare == '(';
-                    default:
-                        return false;
-                }
-            }
-        }
-
         //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         //https://www.codewars.com/kata/566fc12495810954b1000030/train/csharp
         //n을 받아서 0에서 n까지 각 수마다 제곱하여 숫자들을 만들라. (ex number =3 => (0, 1,4,9))
@@ -351,25 +302,45 @@ namespace Solution
         [Test]
         public void Test_FoldArray()
         {
-            var input = new int[] { 1, 2, 3, 4, 5 };
-            var expected = new int[] { 6, 6, 3 };
-            Assert.AreEqual(string.Join(",", expected), string.Join(",", Kata.FoldArray(input, 1)));
+            var input = new[] {1, 2, 3, 4, 5};
+            var expected = new[] {6, 6, 3};
+            Assert.AreEqual(string.Join(",", expected), string.Join(",", FoldArray(input, 1)));
 
-            expected = new int[] { 9, 6 };
-            Assert.AreEqual(string.Join(",", expected), string.Join(",", Kata.FoldArray(input, 2)));
+            expected = new[] {9, 6};
+            Assert.AreEqual(string.Join(",", expected), string.Join(",", FoldArray(input, 2)));
 
-            expected = new int[] { 15 };
-            Assert.AreEqual(string.Join(",", expected), string.Join(",", Kata.FoldArray(input, 3)));
+            expected = new[] {15};
+            Assert.AreEqual(string.Join(",", expected), string.Join(",", FoldArray(input, 3)));
 
-            input = new int[] { -9, 9, -8, 8, 66, 23 };
-            expected = new int[] { 14, 75, 0 };
-            Assert.AreEqual(string.Join(",", expected), string.Join(",", Kata.FoldArray(input, 1)));
+            input = new[] {-9, 9, -8, 8, 66, 23};
+            expected = new[] {14, 75, 0};
+            Assert.AreEqual(string.Join(",", expected), string.Join(",", FoldArray(input, 1)));
         }
 
         public static int[] FoldArray(int[] array, int runs)
         {
-            return new int[] { 0 };
+            return new[] {0};
+        }
+
+        //https://www.codewars.com/kata/5842df8ccbd22792a4000245
+        // Write Number in Expanded Form!
+        // You will be given a number and you will need to return it as a string in Expanded Form. For example:
+        // Kata.ExpandedForm(12); # Should return "10 + 2"
+        // Kata.ExpandedForm(42); # Should return "40 + 2"
+        // Kata.ExpandedForm(70304); # Should return "70000 + 300 + 4"
+        // NOTE: All numbers will be whole numbers greater than 0.
+
+        [Test]
+        public void Test_ExpandedForm()
+        {
+            Assert.That(ExpandedForm(12), Is.EqualTo("10 + 2"));
+            Assert.That(ExpandedForm(42), Is.EqualTo("40 + 2"));
+            Assert.That(ExpandedForm(70304), Is.EqualTo("70000 + 300 + 4"));
+        }
+
+        public static string ExpandedForm(long num)
+        {
+            throw new NotImplementedException();
         }
     }
 }
- 
